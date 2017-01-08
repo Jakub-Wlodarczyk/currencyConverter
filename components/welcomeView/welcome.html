@@ -1,0 +1,24 @@
+<div class="converter-container">
+    <div class="result">
+        <span ng-show="result > 0">{{result}}</span>
+    </div>
+    <div class="pretty-currencies">
+        <label for="prettify">Prettify: </label>
+        <input name="prettify" type="checkbox" ng-click="welcome.togglePretty()" ng-model="pretty" ng-true-value="1" ng-false-value="0">
+    </div>
+    <div class="convert-from">
+        <label for="base-currency">Convert from: </label>
+        <select ng-hide="isPretty" ng-model="baseCurrency" name="base-currency" ng-options="key as key for (key , value) in currencies"></select>
+        <select ng-show="isPretty" ng-model="baseCurrency" name="base-currency" ng-options="val as val for val in prettyCurrencies"></select>
+    </div>
+    <div class="convert-to">
+        <label for="target-currency">To: </label>
+        <select ng-hide="isPretty" ng-model="targetCurrency" name="target-currency" ng-options="key as key for (key , value) in currencies"></select>
+        <select ng-show="isPretty" ng-model="targetCurrency" name="base-currency" ng-options="val as val for val in prettyCurrencies"></select>
+    </div>
+    <div class="amount">
+        <label for="amount">Amount: </label>
+        <input name="amount" ng-model="amount">
+    </div>
+    <button  ng-click="welcome.convertCurrency()" type="button" class="btn-success">Convert</button>
+</div>
